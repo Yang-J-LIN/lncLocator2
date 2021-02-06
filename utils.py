@@ -1,7 +1,7 @@
 # This module inlcudes functions that will be used in many other modules.
 import logging
 
-import word2vec
+# import word2vec
 import torch
 import numpy as np
 import matplotlib.pyplot as plt
@@ -173,9 +173,9 @@ def num_to_class_lncatlas(location):
 
 
 def embed_from_pretrained(args):
-    if args.embed == 'word2vec':
-        model = word2vec.load(args.kmer_embed_dir)
-    elif args.embed == 'glove':
+#     if args.embed == 'word2vec':
+#         model = word2vec.load(args.kmer_embed_dir)
+    if args.embed == 'glove':
         model = load_glove_model(args.kmer_embed_dir)
         print('Read model\n model size: {:d}'.format(len(model)))
     embed = torch.zeros(4**args.k, args.embed_num)
